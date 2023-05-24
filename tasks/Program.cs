@@ -124,11 +124,11 @@
 // Задача 4. Задайте одномерный массив из 123 элементов. Найдите количество элементов, значения которых
 // лежат внутри диапазона [10;99].
 
-int array_size = 123;
+int array_size = 100000;
 int min_value = 0;
 int max_value = 199;
 int[] userArray = CreateRandomArray(array_size, min_value, max_value);
-//PrintArray(userArray);
+PrintArray(userArray);
 FindNum(userArray);
 
 int[] CreateRandomArray(int size, int minValue, int maxValue)
@@ -138,12 +138,12 @@ int[] CreateRandomArray(int size, int minValue, int maxValue)
     return newArray;
 }
 
-// void PrintArray(int[] arrayExample)
-// {
-//     int size = arrayExample.Length;
-//     for(int index = 0; index < size; index++){Console.Write(arrayExample[index] + " ");}
-//     Console.WriteLine();
-// }
+void PrintArray(int[] arrayExample)
+{
+    int size = arrayExample.Length;
+    for(int index = 0; index < size; index++){Console.Write(arrayExample[index] + " ");}
+    Console.WriteLine();
+}
 
 void FindNum(int[] array)
 {
