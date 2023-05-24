@@ -41,6 +41,60 @@
 
 // Задача 2. Напишите программу изменения элемента массива. Положительные на отрицательные и наоборот. 
 
+// int[] CreateRandomArray(int size, int minValue, int maxValue)
+// {
+//     int[] newArray = new int[size];
+//     for(int index = 0; index < size; index++){newArray[index] = new Random().Next(minValue, maxValue + 1);}
+//     return newArray;
+// }
+
+// void PrintArray(int[] arrayExample)
+// {
+//     int size = arrayExample.Length;
+//     for(int index = 0; index < size; index++){Console.Write(arrayExample[index] + " ");}
+//     Console.WriteLine();
+// }
+
+// int[] InvertArray(int[] array)
+// {
+//     int size = array.Length;
+//     int[] invertArray = new int[size];
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         invertArray[i] = -1*array[i];
+//     }
+//     return invertArray;
+// }
+
+// Console.WriteLine("Введите размер массива: ");
+// int array_size = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите минимально возможное значение в ячейке: ");
+// int min_value = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите максимально возможное значение в ячейке: ");
+// int max_value = Convert.ToInt32(Console.ReadLine());
+// int[] userArray = CreateRandomArray(array_size, min_value, max_value);
+// Console.Write("Исходный массив:  ");
+// PrintArray(userArray);
+// int[] resultArray = InvertArray(userArray);
+// Console.Write("Инвертированный массив:  ");
+// PrintArray(resultArray);
+
+
+// Задача 3. Запросить у пользователя число и определить, присутствует ли это число в массиве.
+
+Console.WriteLine("Введите размер массива: ");
+int array_size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите минимально возможное значение в ячейке: ");
+int min_value = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите максимально возможное значение в ячейке: ");
+int max_value = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите число, наличие которого нужно проверить в массиве: ");
+int find_value = Convert.ToInt32(Console.ReadLine());
+int[] userArray = CreateRandomArray(array_size, min_value, max_value);
+Console.Write("Исходный массив:  ");
+PrintArray(userArray);
+FindNum(userArray, find_value);
+
 int[] CreateRandomArray(int size, int minValue, int maxValue)
 {
     int[] newArray = new int[size];
@@ -55,26 +109,13 @@ void PrintArray(int[] arrayExample)
     Console.WriteLine();
 }
 
-int[] InvertArray(int[] array)
+void FindNum(int[] array, int number)
 {
-    int size = array.Length;
-    int[] invertArray = new int[size];
+    bool finded = false;
     for(int i = 0; i < array.Length; i++)
     {
-        invertArray[i] = -1*array[i];
+        if (array[i] == number) finded  = true;
     }
-    return invertArray;
+    if (finded == true) Console.WriteLine($"Число {number} присутствует в массиве.");
+    else Console.WriteLine($"Число {number} в массиве отсутствует.");
 }
-
-Console.WriteLine("Введите размер массива: ");
-int array_size = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите минимально возможное значение в ячейке: ");
-int min_value = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите максимально возможное значение в ячейке: ");
-int max_value = Convert.ToInt32(Console.ReadLine());
-int[] userArray = CreateRandomArray(array_size, min_value, max_value);
-Console.Write("Исходный массив:  ");
-PrintArray(userArray);
-int[] resultArray = InvertArray(userArray);
-Console.Write("Инвертированный массив:  ");
-PrintArray(resultArray);
