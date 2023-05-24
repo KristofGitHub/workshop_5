@@ -82,18 +82,54 @@
 
 // Задача 3. Запросить у пользователя число и определить, присутствует ли это число в массиве.
 
-Console.WriteLine("Введите размер массива: ");
-int array_size = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите минимально возможное значение в ячейке: ");
-int min_value = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите максимально возможное значение в ячейке: ");
-int max_value = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите число, наличие которого нужно проверить в массиве: ");
-int find_value = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите размер массива: ");
+// int array_size = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите минимально возможное значение в ячейке: ");
+// int min_value = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите максимально возможное значение в ячейке: ");
+// int max_value = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите число, наличие которого нужно проверить в массиве: ");
+// int find_value = Convert.ToInt32(Console.ReadLine());
+// int[] userArray = CreateRandomArray(array_size, min_value, max_value);
+// Console.Write("Исходный массив:  ");
+// PrintArray(userArray);
+// FindNum(userArray, find_value);
+
+// int[] CreateRandomArray(int size, int minValue, int maxValue)
+// {
+//     int[] newArray = new int[size];
+//     for(int index = 0; index < size; index++){newArray[index] = new Random().Next(minValue, maxValue + 1);}
+//     return newArray;
+// }
+
+// void PrintArray(int[] arrayExample)
+// {
+//     int size = arrayExample.Length;
+//     for(int index = 0; index < size; index++){Console.Write(arrayExample[index] + " ");}
+//     Console.WriteLine();
+// }
+
+// void FindNum(int[] array, int number)
+// {
+//     bool finded = false;
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] == number) finded  = true;
+//     }
+//     if (finded == true) Console.WriteLine($"Число {number} присутствует в массиве.");
+//     else Console.WriteLine($"Число {number} в массиве отсутствует.");
+// }
+
+
+// Задача 4. Задайте одномерный массив из 123 элементов. Найдите количество элементов, значения которых
+// лежат внутри диапазона [10;99].
+
+int array_size = 123;
+int min_value = 0;
+int max_value = 199;
 int[] userArray = CreateRandomArray(array_size, min_value, max_value);
-Console.Write("Исходный массив:  ");
-PrintArray(userArray);
-FindNum(userArray, find_value);
+//PrintArray(userArray);
+FindNum(userArray);
 
 int[] CreateRandomArray(int size, int minValue, int maxValue)
 {
@@ -102,20 +138,19 @@ int[] CreateRandomArray(int size, int minValue, int maxValue)
     return newArray;
 }
 
-void PrintArray(int[] arrayExample)
-{
-    int size = arrayExample.Length;
-    for(int index = 0; index < size; index++){Console.Write(arrayExample[index] + " ");}
-    Console.WriteLine();
-}
+// void PrintArray(int[] arrayExample)
+// {
+//     int size = arrayExample.Length;
+//     for(int index = 0; index < size; index++){Console.Write(arrayExample[index] + " ");}
+//     Console.WriteLine();
+// }
 
-void FindNum(int[] array, int number)
+void FindNum(int[] array)
 {
-    bool finded = false;
+    int finded = 0;
     for(int i = 0; i < array.Length; i++)
     {
-        if (array[i] == number) finded  = true;
+        if ((array[i] >= 10)&&(array[i]<=99)) finded++;
     }
-    if (finded == true) Console.WriteLine($"Число {number} присутствует в массиве.");
-    else Console.WriteLine($"Число {number} в массиве отсутствует.");
+    Console.WriteLine($"Количество элементов со значениями в диапазоне [10;99] в массиве равно {finded}.");
 }
